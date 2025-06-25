@@ -21,7 +21,7 @@ export const AppContextProvider = ({ children }) => {
     setProducts(dummyProducts);
   };
   // add product to cart
-  const addToCart = () => {
+  const addToCart = (itemId) => {
     let cartData = structuredClone(cartItems);
 
     if (cartData[itemId]) {
@@ -30,7 +30,7 @@ export const AppContextProvider = ({ children }) => {
       cartData[itemId] = 1;
     }
     setCartItems(cartData);
-    toast.success("Added to cart successfully");
+    toast.success("Added to cart");
   };
 
   // update cart item quantity
@@ -38,7 +38,7 @@ export const AppContextProvider = ({ children }) => {
     let cartData = structuredClone(cartItems);
     cartData[itemId] = quantity;
     setCartItems(cartData);
-    toast.success("Cart updated successfully");
+    toast.success("Cart updated");
   };
 
   // Remove Product from Cart
