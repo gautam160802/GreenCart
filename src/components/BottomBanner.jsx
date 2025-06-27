@@ -26,12 +26,14 @@ const BottomBanner = () => {
                 alt={feature.title}
                 className="md:w-11 w-9"
               />
-              <h3 className="text-lg md:text-xl font-semibold">
-                {feature.title}
-              </h3>
-              <p className="text-gray-500/70 text-xs md:text-sm">
-                {feature.description}
-              </p>
+              <div>
+                <h2 className="text-lg md:text-xl font-semibold text-primary">
+                  {feature.title}
+                </h2>
+                <p className="text-sm md:text-base text-secondary">
+                  {feature.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
