@@ -18,7 +18,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
         </Routes>
       </div>
-      <Footer />
+      {!isSellerPath && <Footer />}
     </div>
   );
 };
