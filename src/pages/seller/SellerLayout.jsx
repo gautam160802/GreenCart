@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import { assets } from "../../assets/assets";
 import { useAppContext } from "../../context/AppContext";
 
@@ -45,7 +45,7 @@ const SellerLayout = () => {
             <NavLink
               to={item.path}
               key={item.name}
-              end={item.p === "/seller"}
+              end={item.path === "/seller"}
               className={({ isActive }) => `flex items-center py-3 px-4 gap-3 
                             ${
                               isActive
