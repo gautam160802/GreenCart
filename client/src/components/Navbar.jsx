@@ -25,7 +25,7 @@ const Navbar = () => {
         setUser(null);
         navigate("/");
       } else {
-        toast.success(data.message);
+        toast.error(data.message);
       }
     } catch (error) {
       toast.error(error.message);
