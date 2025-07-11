@@ -1,22 +1,27 @@
+// middlewares/authUser.js
 import jwt from "jsonwebtoken";
 
 const authUser = async (req, res, next) => {
   const { token } = req.cookies;
 
   if (!token) {
-    return res.json({ success: false, message: "Not Authorized" });
+    return res
+      .status(401)
+      .json({ success: false, message: "Not Authorized - No token" });
   }
 
   try {
     const tokenDecode = jwt.verify(token, process.env.JWT_SECRET);
     if (tokenDecode.id) {
-      req.userId = tokenDecode.id; // ✅ Save on `req`, not `req.body`
+      req.userId = tokenDecode.id; // ✅ Put it on req, not req.body
       next();
     } else {
-      return res.json({ success: false, message: "Not Authorized" });
+      return res
+        .status(401)
+        .json({ success: false, message: "Not Authorized - Invalid token" });
     }
   } catch (error) {
-    res.json({ success: false, message: error.message });
+    res.status(401).json({ success: false, message: error.message });
   }
 };
 
